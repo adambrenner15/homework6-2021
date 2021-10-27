@@ -11,7 +11,7 @@ body{
     background: #fff;
     border-bottom: 3px solid #50C7C7;
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     align-items: center;
   }
   
@@ -29,11 +29,6 @@ body{
   
   p {
     padding: 0 30px;
-  }
-
-  p::before{
-      padding: 0 30px;
-      content: 👍;
   }
   
   a.skip{
@@ -58,7 +53,7 @@ body{
   }
   .nav_links{
       display: flex;
-      flex-flow: column;
+      flex-direction: column;
       align-items: center;
   }
 
@@ -95,6 +90,7 @@ body{
     display: flex;
     flex-basis: 450px;
     flex-flow: column;
+    z-index: 0;
   
   }
 
@@ -106,6 +102,7 @@ body{
       padding-bottom: 20px;
       border-top-left-radius: 7px;
       border-top-right-radius: 7px;
+      z-index: 0;
   }
 
   .card > ul{
@@ -142,7 +139,7 @@ body{
   }
 
   .gallery{
-    min-height: 600px;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -213,10 +210,6 @@ body{
         border-top-left-radius: 7px;
         border-top-right-radius: 7px;
     }
-    .pricing{
-        display: flex;
-        flex-flow: row nowrap;
-    }
 }
 @media (prefers-reduced-motion){
       #logo{
@@ -229,26 +222,35 @@ body{
             padding: 0;
             font-size: 16pt;
             background-color: #f1f1f1;
+            background-image: none;
             font-family: "Alegreya Sans SC", serif;
         }
         nav{
-            width: 100;
+            width: 100%;
         }
 
         .nav_links{
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: space-around;
         }
         .pricing{
             display: flex;
-            flex-direction: row;
+            flex-flow: row nowrap;
             align-items: flex-end;
+            align-content: center;
+            
 
+        }
+        .front::before{
+            content:'\1F44D';
+        }
+        .back::after{
+            content:'\1F44D';
         }
         .card{
             border: 2px solid #45adad;
-            flex-basis: 200px;
+            flex-basis: 250px;
         }
         .gallery{
             display: none;
@@ -256,13 +258,7 @@ body{
         #gallery{
             display: none;
         }
-        
-        footer{
-            background-color: black;
-            color: white;
-            padding: 30px;
-            text-align: center;
-          }
+
 }
 
   
